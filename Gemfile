@@ -72,3 +72,5 @@ group :test do
 end
 
 gem "figaro"
+
+gem "devise", "~> 4.9"
