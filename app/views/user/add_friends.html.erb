@@ -1,0 +1,15 @@
+<h1>User#add_friends</h1>
+
+<hr>
+  <% @non_friends.each do |person| %>
+    <div>
+      Email: <%= person.email %>
+
+      <form action="<%= friendships_url %>" method="post">
+        <input type="hidden" value="<%= current_user.id %>" name="sender_id">
+        <input type="hidden" value="<%= person.id %>" name="receiver_id">
+        <input type="Submit">
+      </form>
+    </div>
+  <% end %>
+<hr>

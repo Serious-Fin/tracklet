@@ -18,11 +18,6 @@ users = User.create([
 
 friendships = Friendship.create([
   { user_id: 1, friend_id: 2, status: 'accepted' },
-  { user_id: 1, friend_id: 3, status: 'accepted' },
-  { user_id: 1, friend_id: 4, status: 'accepted' },
-  { user_id: 1, friend_id: 5, status: 'pending' },
-  { user_id: 1, friend_id: 6, status: 'pending' },
-  { user_id: 1, friend_id: 7, status: 'cancelled' },
   { user_id: 2, friend_id: 3, status: 'accepted' },
   { user_id: 2, friend_id: 5, status: 'accepted' },
   { user_id: 2, friend_id: 7, status: 'accepted' },
