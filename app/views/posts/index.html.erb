@@ -1,0 +1,23 @@
+<h1>Posts</h1>
+<% @posts.each do |post| %>
+  <div>
+    Content: <%= post.contents %> <br \>
+    Author: <%= User.find(id=post.user_id).email %> <br \>
+    Likes: <%= Like.where(post_id: post.id).count %> <br \>
+    Comments: <br \>
+
+    <% post.comments.each do |comment| %>
+      <div>
+        <%= User.find(id=comment.id).email %>: <%= comment.contents %>
+      </div>
+    <% end %>
+
+    <% if Like.where(user_id: current_user.id, post_id: post.id).any? %>
+      <%= button_to 'Dislike', like_url(Like.where(user_id: current_user.id, post_id: post.id)), method: :delete %>
+    <% else %>
+      <%= button_to 'Like', controller: 'likes', action: 'create', params: {post_id: post.id}, method: :post %>
+    <% end %>
+
+  </div>
+  <hr>
+<% end %>

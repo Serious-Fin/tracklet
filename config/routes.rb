@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   root "pages#home"
 
   resources :friendships, only: [:create, :update, :destroy]
+  resources :posts, only: [:index, :new, :create]
+  resources :likes, only: [:create, :destroy]
 end
