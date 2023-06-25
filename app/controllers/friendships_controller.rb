@@ -4,10 +4,10 @@ class FriendshipsController < ApplicationController
 
     if @friendship.save
       flash[:notice] = "Friend request sent to #{User.find(id=params[:receiver_id]).email}"
-      redirect_to user_add_friends_url
+      redirect_to users_add_friends_url
     else
       flash[:notice] = "Something went wrong. Try again later"
-      redirect_to user_add_friends_url
+      redirect_to users_add_friends_url
     end
   end
 
