@@ -8,4 +8,8 @@ class UsersController < ApplicationController
 
     @non_friends = User.where.not(id: @friends).where.not(id: current_user.id)
   end
+
+  def pending_requests
+    @pending_friendship_objects = Friendship.incoming_friendships(current_user.id).pending_friendships
+  end
 end

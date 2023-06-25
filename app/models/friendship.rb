@@ -13,4 +13,12 @@ class Friendship < ApplicationRecord
   def self.active_friendships
     where(status: ['accepted', 'pending'])
   end
+
+  def self.pending_friendships
+    where(status: 'pending')
+  end
+
+  def self.incoming_friendships(current_user_id)
+    where(friend_id: current_user_id)
+  end
 end
