@@ -7,13 +7,13 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 users = User.create([
-  { email: "test@test.com", password: "123456" },
-  { email: "magas3@gmail.com", password: "wheregems" },
-  { email: "badabing@gmail.com", password: "badabang" },
-  { email: "lukas@gmail.com", password: "111111" },
-  { email: "aurimas@gmail.com", password: "111111" },
-  { email: "darius@gmail.com", password: "111111" },
-  { email: "vytas@gmail.com", password: "111111" }
+  { name: "Emil1", email: "test@test.com", password: "123456" },
+  { name: "Emil2", email: "magas3@gmail.com", password: "wheregems" },
+  { name: "Emil3", email: "badabing@gmail.com", password: "badabang" },
+  { name: "Emil4", email: "lukas@gmail.com", password: "111111" },
+  { name: "Emil5", email: "aurimas@gmail.com", password: "111111" },
+  { name: "Emil6", email: "darius@gmail.com", password: "111111" },
+  { name: "Emil7", email: "vytas@gmail.com", password: "111111" }
 ])
 
 friendships = Friendship.create([
