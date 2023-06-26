@@ -11,10 +11,13 @@ Rails.application.routes.draw do
   root "pages#home"
 
   resources :friendships, only: [:create, :update, :destroy]
-  resources :posts, only: [:index, :new, :create]
+  resources :posts, only: [:index, :new, :create, :show]
 
   resources :posts do
     post 'like', on: :member
     post 'dislike', on: :member
+    post 'comment', on: :member
+    post 'delete_comment', on: :member
+
   end
 end

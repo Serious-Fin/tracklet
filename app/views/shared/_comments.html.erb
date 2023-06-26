@@ -1,0 +1,13 @@
+<form action="<%= comment_post_url %>" method="post">
+  <input type="text" name="contents">
+  <input type="Submit" value="Comment">
+</form>
+
+<% @post.comments.each do |comment| %>
+  <div>
+    <%= User.find(id=comment.user_id).email %>: <%= comment.contents %>
+    <% if comment.user_id == current_user.id %>
+      <%= button_to 'Delete', delete_comment_post_url(@post), params: {comment_id: comment.id} %>
+    <% end %>
+  </div>
+<% end %>

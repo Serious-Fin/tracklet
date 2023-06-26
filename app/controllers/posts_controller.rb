@@ -19,6 +19,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    @post = Post.find(id=params[:id])
+  end
+
   def like
     @post = Post.find(id=params[:id])
     @like = @post.likes.build(user_id: current_user.id)
@@ -40,6 +44,29 @@ class PostsController < ApplicationController
       redirect_to posts_url, notice: "Disliked successfully"
     else
       redirect_to posts_url, notice: "Can't dislike at the moment. Try again later"
+    end
+  end
+
+  def comment
+    @post = Post.find(id=params[:id])
+    @comment = @post.comments.build(user_id: current_user.id, contents: params[:contents])
+
+    if @comment.save
+      redirect_to post_url(@post), notice: "Comment published!"
+    else
+      redirect_to post_url(@post), notice: "Commenting went wrong. Try again later"
+    end
+  end
+
+  def delete_comment
+    @post = Post.find(id=params[:id])
+    @comment = @post.comments.find(id=params[:comment_id])
+
+    if @comment
+      @comment.destroy
+      redirect_to post_url(@post), notice: "Comment deleted successfully"
+    else
+      redirect_to post_url(@post), notice: "Can't delete comment at the moment."
     end
   end
 
