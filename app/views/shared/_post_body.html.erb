@@ -1,0 +1,3 @@
+Content: <%= @post.contents %> <br \>
+Author: <%= User.find(id=@post.user_id).email %> <br \>
+Likes: <%= Like.where(post_id: @post.id).count %> <br \>

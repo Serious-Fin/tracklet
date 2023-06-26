@@ -1,3 +1,9 @@
 <h1>Post's show page</h1>
 
+<h2>Post info</h2>
+<%= render partial: 'shared/post_body', post: @post %>
+
+<%= render partial: 'shared/like_dislike_functionality', post: @post %>
+
+<h2>Comments</h2>
 <%= render partial: 'shared/comments', post: @post %>

@@ -1,0 +1,5 @@
+<% if @post.liked_by_user?(current_user) %>
+  <%= button_to 'Dislike', dislike_post_url(@post), method: :post %>
+<% else %>
+  <%= button_to 'Like', like_post_url(@post), method: :post %>
+<% end %>
