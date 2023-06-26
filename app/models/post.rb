@@ -4,4 +4,8 @@ class Post < ApplicationRecord
   has_many :comments
 
   validates :contents, presence: true
+
+  def liked_by_user?(user)
+    likes.exists?(user_id: user.id)
+  end
 end

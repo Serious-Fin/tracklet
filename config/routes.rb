@@ -12,5 +12,9 @@ Rails.application.routes.draw do
 
   resources :friendships, only: [:create, :update, :destroy]
   resources :posts, only: [:index, :new, :create]
-  resources :likes, only: [:create, :destroy]
+
+  resources :posts do
+    post 'like', on: :member
+    post 'dislike', on: :member
+  end
 end

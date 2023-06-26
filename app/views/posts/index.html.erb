@@ -8,16 +8,15 @@
 
     <% post.comments.each do |comment| %>
       <div>
-        <%= User.find(id=comment.id).email %>: <%= comment.contents %>
+        <%= User.find(id=comment.user_id).email %>: <%= comment.contents %>
       </div>
     <% end %>
 
-    <% if Like.where(user_id: current_user.id, post_id: post.id).any? %>
-      <%= button_to 'Dislike', like_url(Like.where(user_id: current_user.id, post_id: post.id)), method: :delete %>
+    <% if post.liked_by_user?(current_user) %>
+      <%= button_to 'Dislike', dislike_post_url(post), method: :post %>
     <% else %>
-      <%= button_to 'Like', controller: 'likes', action: 'create', params: {post_id: post.id}, method: :post %>
+      <%= button_to 'Like', like_post_url(post), method: :post %>
     <% end %>
-
   </div>
   <hr>
 <% end %>
