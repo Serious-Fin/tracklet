@@ -76,3 +76,7 @@ gem "figaro"
 gem "devise", "~> 4.9"
 
 gem 'gravatar_image_tag'
+
+gem 'omniauth-github', '~> 2.0.0'
+
+gem 'omniauth-rails_csrf_protection'
