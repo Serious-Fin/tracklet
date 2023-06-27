@@ -74,3 +74,5 @@ end
 gem "figaro"
 
 gem "devise", "~> 4.9"
+
+gem 'gravatar_image_tag'

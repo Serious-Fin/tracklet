@@ -12,4 +12,9 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_many :likes
+
+  def gravatar_url(size: 150)
+    gravatar_id = Digest::MD5.hexdigest(email.downcase)
+    "https://www.gravatar.com/avatar/#{gravatar_id}?s=#{size}&d=identicon"
+  end
 end

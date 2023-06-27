@@ -1,5 +1,7 @@
 <h1>User show page</h1>
 
+<%= image_tag(@user.gravatar_url, size: '150x150', alt: 'User Avatar') %>
+
 Name: <%= @user.name %> <br />
 
 Email: <%= @user.email %> <br />
