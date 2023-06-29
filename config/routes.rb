@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'users/add_friends'
   get 'users/pending_requests'
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
   get 'pages/home'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
