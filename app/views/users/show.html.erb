@@ -1,6 +1,10 @@
 <h1>User show page</h1>
 
-<%= image_tag(@user.gravatar_url, size: '150x150', alt: 'User Avatar') %>
+<% if @user.profile_photo.attached? %>
+  <%= image_tag @user.profile_photo.variant(resize_to_limit: [150, 150]) %>
+<% else %>
+  <%= image_tag(@user.gravatar_url, size: '150x150', alt: 'User Avatar') %>
+<% end %>
 
 Name: <%= @user.name %> <br />
 
