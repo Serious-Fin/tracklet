@@ -1,6 +1,11 @@
 <h1>Posts</h1>
 <% @posts.each do |post| %>
   <div>
+
+    <% post.photos.each do |photo| %>
+     <%= image_tag photo.image_url %>
+    <% end %>
+
     Content: <%= post.contents %> <br \>
     Author: <%= User.find(id=post.user_id).email %> <br \>
     Likes: <%= Like.where(post_id: post.id).count %> <br \>

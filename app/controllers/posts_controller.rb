@@ -10,6 +10,12 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(user_id: current_user.id, contents: params[:post][:contents])
 
+    # Check if photo URL is provided
+    if params[:post][:image_url].present?
+      @photo = Photo.new(image_url: params[:post][:image_url])
+      @post.photos << @photo
+    end
+
     if @post.save
       flash[:notice] = "Post published!"
       redirect_to posts_url
