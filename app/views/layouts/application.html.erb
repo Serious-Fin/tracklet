@@ -11,13 +11,17 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-gradient-to-r from-sky-500 to-violet-500">
+  <body class="bg-gradient-to-r from-sky-200 to-violet-300">
     <% if flash[:notice].present? %>
-      <p class="bg-green-200 w-fit p-3 border-2 border-green-600 text-green-700 text-lg rounded-lg"><%= notice %></p>
+      <div class="absolute top-0 right-0">
+        <p class="bg-green-100 w-fit p-3 border-2 border-green-500 text-green-600 text-lg rounded-lg"><%= notice %></p>
+      </div>
     <% end %>
 
     <% if flash[:alert].present? %>
-      <p class="bg-red-200 w-fit p-3 border-2 border-rose-600 text-red-700 text-lg rounded-lg"><%= alert %></p>
+      <div class="absolute top-0 right-0">
+        <p class="bg-red-100 w-fit p-3 border-2 border-rose-500 text-red-600 text-lg rounded-lg"><%= alert %></p>
+      </div>
     <% end %>
 
     <% if user_signed_in? %>
