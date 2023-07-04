@@ -1,58 +1,59 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="self-center flex flex-col m-auto mt-[3%] space-y-4 border rounded-lg border-white w-96 shadow-lg items-center bg-white py-20 px-10">
+  <h2 class="font-sans text-4xl font-bold mb-8">Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %> <br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
+    <div class="field">
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Name", class: "border-0 mb-8 border-b-2" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :profile_photo %> <br />
-    <%= f.file_field :profile_photo %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :bio %> <br />
-    <%= f.text_field :bio, autofocus: true %>
-  </div>
+    <div class="field">
+      <%= f.label :profile_photo, value: "Current profile picture:" %> <br />
+      <% if current_user.profile_photo.attached? %>
+          <%= image_tag current_user.profile_photo.variant(resize_to_fit: [60, 60]), class: "inline rounded-full border border-black mt-2" %>
+      <% else %>
+          <%= image_tag(current_user.gravatar_url, size: '150x150', alt: 'User Avatar', class: "w-[60px] inline border border-black m-4") %>
+      <% end %>
+      <%= f.file_field :profile_photo, class: 'mb-4' %>
+    </div>
+    
+    <div class="field">
+      <%= f.text_field :bio, autofocus: true, placeholder: "Tell us about you", class: "border-0 mb-8 border-b-2" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "border-0 mb-8 border-b-2" %>
+    </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="field mb-8">
+      <i>(leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "New password", class: "border-0 border-b-2" %>
+      <% if @minimum_password_length %>
+        <br />
+        <em><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm New Password", class: "border-0 mb-8 border-b-2" %>
+    </div>
+
+    <div class="field">
+      <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "Current Password", class: "border-0 mb-8 border-b-2" %>
+    </div>
+
+    <div class="actions  mt-8 text-center">
+      <%= f.submit "Update", class: "underline" %>
+    </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+  <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "w-full p-4 bg-red-700 text-white text-lg rounded-lg" %></div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+  <%= link_to "Back", :back, class: "underline" %>
+</div>
