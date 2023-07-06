@@ -1,13 +1,22 @@
-<h1>Notifications</h1>
-<h2>Pending friend requests</h2>
-<% @pending_friendship_objects.each do |object| %>
-  <div>
-    Friend request from <%= User.find(id=object.user_id).email %>
-    <form method="patch" action="<%= friendship_url(object) %>">
-      <input type="Submit" value="Accept">
-    </form>
-    <form method="delete" action="<%= friendship_url(object) %>">
-      <input type="Submit" value="Decline">
-    </form>
-  </div>
-<% end %>
+<div class="self-center border rounded-lg border-black w-2/5 shadow-lg bg-white p-4 flex flex-col">
+  <h1 class="font-sans text-4xl font-bold mb-8 self-center">Notifications</h1>
+    <% @pending_friendship_objects.each do |object| %>
+      <div class="border border-black flex justify-between items-center mb-4 text-lg bg-gray-100 shadow-sm rounded-md p-2">
+        
+        <div>
+          Friend request from 
+          <b><%= User.find(id=object.user_id).name %></b> 
+          <em>(<%= User.find(id=object.user_id).email %>)</em>
+        </div>
+
+        <div class="flex gap-5">
+          <form method="patch" action="<%= friendship_url(object) %>">
+            <input type="Submit" value="Accept" class="bg-green-600 py-1 px-2 text-white rounded-lg hover:bg-green-200 hover:text-black border-2 transition-all duration-200">
+          </form>
+          <form method="delete" action="<%= friendship_url(object) %>">
+            <input type="Submit" value="Decline" class="bg-red-600 py-1 px-2 text-white rounded-lg hover:bg-red-200 hover:text-black border-2 transition-all duration-200">
+          </form>
+        </div>
+      </div>
+    <% end %>
+</div>
