@@ -12,6 +12,8 @@ gem "sprockets-rails"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
+gem 'will_paginate', '~> 4.0'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
@@ -86,5 +88,3 @@ gem "letter_opener", group: :development
 gem 'image_processing', '~> 1.2'
 
 gem "tailwindcss-rails"
-
-gem 'will_paginate', '~> 4.0'
