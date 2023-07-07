@@ -86,3 +86,5 @@ gem "letter_opener", group: :development
 gem 'image_processing', '~> 1.2'
 
 gem "tailwindcss-rails"
+
+gem 'will_paginate', '~> 4.0'
