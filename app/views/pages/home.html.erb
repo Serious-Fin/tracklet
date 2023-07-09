@@ -1,7 +1,19 @@
-<div class="w-1/3 self-center">
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
-  <p>Hello, world</p>
+<div class="self-center border rounded-lg border-black w-2/5 shadow-lg bg-white p-4 flex flex-col mb-16">
+  <%= form_with model: @post do |f| %>
+    <%= f.text_field :contents, placeholder: "What's on your mind?", class: "w-full rounded-tr-full pl-4 mb-2" %>
+
+    <br />
+
+    <%= f.text_field :image_url, placeholder: "Optional image url", class: "w-full rounded-br-full pl-4 mb-4" %>
+
+    <%= f.submit "Create post", class: "bg-green-600 text-white w-32 text-lg h-8 rounded-lg shadow-md hover:bg-green-800 transition-all duration-300" %>
+  <% end %>
+
+  <% @post.errors.full_messages.each do |message| %>
+    <div>
+      <%= message %>
+    </div>
+  <% end %>
 </div>
-<turbo-frame id="new-post-form" src="/posts/new"></turbo-frame>
+
 <turbo-frame id="post-listing" src="/posts" class="flex flex-col"></turbo-frame>

@@ -1,19 +1,21 @@
 <h1>Create a new post</h1>
 
-<%= form_with model: @post do |f| %>
-  <%= f.label :contents %>
-  <%= f.text_field :contents %>
+  <div class="self-center border rounded-lg border-black w-2/5 shadow-lg bg-white p-4 flex flex-col">
+    <%= form_with model: @post do |f| %>
+      <%= f.label :contents %>
+      <%= f.text_field :contents %>
 
-  <br />
+      <br />
 
-  <%= f.label :image_url %>
-  <%= f.text_field :image_url %>
+      <%= f.label :image_url %>
+      <%= f.text_field :image_url %>
 
-  <%= f.submit %>
-<% end %>
+      <%= f.submit %>
+    <% end %>
 
-<% @post.errors.full_messages.each do |message| %>
-  <div>
-    <%= message %>
+    <% @post.errors.full_messages.each do |message| %>
+      <div>
+        <%= message %>
+      </div>
+    <% end %>
   </div>
-<% end %>

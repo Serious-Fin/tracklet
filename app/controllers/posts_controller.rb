@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     # @posts = Post.all
-    @posts = Post.all
+    @posts = Post.order(created_at: :desc)
   end
 
   def new
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:notice] = "Post published!"
-      redirect_to posts_url
+      redirect_to root_path
     else
       flash.now[:notice] = "Fill out the form correctly"
       render :new, status: :unprocessable_entity
@@ -59,9 +59,9 @@ class PostsController < ApplicationController
     @comment = @post.comments.build(user_id: current_user.id, contents: params[:contents])
 
     if @comment.save
-      redirect_to post_url(@post), notice: "Comment published!"
+      redirect_to posts_url, notice: "Comment published!"
     else
-      redirect_to post_url(@post), notice: "Commenting went wrong. Try again later"
+      redirect_to posts_url, notice: "Commenting went wrong. Try again later"
     end
   end
 

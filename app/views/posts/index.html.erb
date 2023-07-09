@@ -1,7 +1,7 @@
 <turbo-frame id="post-listing">
 <div class="self-center border rounded-lg border-black w-2/5 shadow-lg bg-white p-4 flex flex-col">
     <% @posts.each do |post| %>
-      <div class="bg-gradient-to-r from-sky-100 to-violet-200 border border-black w-full flex flex-col p-4">
+      <div class="bg-gradient-to-r from-sky-100 to-violet-200 border border-black w-full flex flex-col p-4 mb-10">
 
         <span class="text-black w-fit flex justify-center gap-4 self-start mb-2">
           <% if post.user.profile_photo.attached? %>
@@ -18,7 +18,7 @@
 
         <div class="w-fill">
           <% post.photos.each do |photo| %>
-          <%= image_tag photo.image_url %>
+          <%= image_tag photo.image_url, class: "mb-2" %>
           <% end %>
         </div>
 
@@ -40,11 +40,12 @@
           <%= post.likes.count %> <br \>
         </div>
 
-      <hr class="border-red-500">
+        <form action="<%= comment_post_path(post) %>" method="post">
+          <input type="text" name="contents", class="w-46 h-8 rounded-l-full">
+          <input type="Submit" value="Comment", class="bg-green-600 text-white w-24 h-8 text-lg rounded-r-full">
+        </form>
 
         <% if post.comments.any? %>
-          Comments: <br \>
-
           <% post.comments.each do |comment| %>
             <div>
               <b><%= comment.user.name %>:</b> <%= comment.contents %>
