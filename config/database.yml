@@ -83,6 +83,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: tracklet_production
   username: tracklet
   password: <%= ENV["TRACKLET_DATABASE_PASSWORD"] %>
