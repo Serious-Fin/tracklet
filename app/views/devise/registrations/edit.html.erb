@@ -7,16 +7,6 @@
     <div class="field">
       <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Name", class: "border-0 mb-8 border-b-2" %>
     </div>
-
-    <div class="field">
-      <%= f.label :profile_photo, value: "Current profile picture:" %> <br />
-      <% if current_user.profile_photo.attached? %>
-          <%= image_tag current_user.profile_photo.variant(resize_to_fit: [60, 60]), class: "inline rounded-full border border-black mt-2" %>
-      <% else %>
-          <%= image_tag(current_user.gravatar_url, size: '150x150', alt: 'User Avatar', class: "w-[60px] inline border border-black m-4") %>
-      <% end %>
-      <%= f.file_field :profile_photo, class: 'mb-4' %>
-    </div>
     
     <div class="field">
       <%= f.text_field :bio, autofocus: true, placeholder: "Tell us about you", class: "border-0 mb-8 border-b-2" %>

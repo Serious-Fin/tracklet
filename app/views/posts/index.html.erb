@@ -4,11 +4,9 @@
       <div class="bg-gradient-to-r from-sky-100 to-violet-200 border border-black w-full flex flex-col p-4 mb-10">
 
         <span class="text-black w-fit flex justify-center gap-4 self-start mb-2">
-          <% if post.user.profile_photo.attached? %>
-            <%= image_tag post.user.profile_photo.variant(resize_to_limit: [50, 50]), class: "inline rounded-full border border-black" %>
-          <% else %>
-            <%= image_tag(post.user.gravatar_url, size: '150x150', alt: 'User Avatar', class: "w-[40px] inline rounded-full border border-black") %>
-          <% end %>
+          
+        <%= image_tag(post.user.gravatar_url, size: '150x150', alt: 'User Avatar', class: "w-[40px] inline rounded-full border border-black") %>
+
           <b><%= post.user.name %></b>
         </span>
 

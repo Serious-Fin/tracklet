@@ -32,11 +32,9 @@
         <!--- User Icon -->
         <span class="text-black w-full flex justify-center gap-4 mb-8 mt-2">
           <%= current_user.name %>
-          <% if current_user.profile_photo.attached? %>
-            <%= image_tag current_user.profile_photo.variant(resize_to_fit: [50, 50]), class: "inline rounded-full border border-black" %>
-          <% else %>
-            <%= image_tag(current_user.gravatar_url, size: '150x150', alt: 'User Avatar', class: "w-[40px] inline rounded-full border border-black") %>
-          <% end %>
+          
+          <%= image_tag(current_user.gravatar_url, size: '150x150', alt: 'User Avatar', class: "w-[40px] inline rounded-full border border-black") %>
+
         </span>
 
         <!-- Navbar -->
