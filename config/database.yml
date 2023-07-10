@@ -84,6 +84,6 @@ test:
 production:
   <<: *default
   url: <%= ENV["DATABASE_URL"] %>
-  database: <%= ENV["PGDATABASE"] %>
-  username: <%= ENV["PGHOST"] %>
-  password: <%= ENV["PGPASSWORD"] %>
+  database: tracklet_production
+  username: tracklet
+  password: <%= ENV["TRACKLET_DATABASE_PASSWORD"] %>
