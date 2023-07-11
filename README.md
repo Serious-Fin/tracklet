@@ -2,7 +2,7 @@
 
 ## Description
 
-"Tracklet" is a project I made to solidify my skills and understanding with Ruby language and Ruby On Rails framework. Project was originally assigned by "The Odin Project" curriculum [here].(https://www.theodinproject.com/lessons/ruby-on-rails-rails-final-project).
+"Tracklet" is a project I made to solidify my skills and understanding with Ruby language and Ruby On Rails framework. Project was originally assigned by "The Odin Project" curriculum [here](https://www.theodinproject.com/lessons/ruby-on-rails-rails-final-project).
 
 ## Demo
 
