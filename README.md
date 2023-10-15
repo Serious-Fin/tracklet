@@ -4,12 +4,14 @@
 
 "Tracklet" is a project I made to solidify my skills and understanding with Ruby language and Ruby On Rails framework. Project was originally assigned by "The Odin Project" curriculum [here](https://www.theodinproject.com/lessons/ruby-on-rails-rails-final-project).
 
-## Demo
+## Demo [OUTDATED]
 
-You can try this project out live [here](https://tracklet-production.up.railway.app/) or by following this link:
-https://tracklet-production.up.railway.app/
+~~You can try this project out live [here](https://tracklet-production.up.railway.app/) or by following this link:
+https://tracklet-production.up.railway.app/~~
 
-Project is being hosted on Railway.app PaaS.
+~~Project is being hosted on Railway.app PaaS.~~
+
+Project no longer hosted.
 
 ## Usage
 To access the website simply create an account (you can use any made-up email, we're not sending any emails).
